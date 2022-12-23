@@ -1,0 +1,35 @@
+@media (max-width : 1519px) {
+    .dropMe {
+        margin-left: 79% !important
+    }
+}
+
+@media (max-width : 1260px) {
+    .dropMe {
+        margin-left: 77% !important;
+    }
+}
+
+@media (max-width : 1060px) {
+    .dropMe {
+        margin-left: 72% !important;
+    }
+}
+
+@media (max-width : 1024px) {
+    .dropMe {
+        margin-left: 71% !important;
+    }
+}
+
+@media (width : 992px) {
+    .dropMe {
+        margin-left: 70% !important;
+    }
+}
+
+@media (max-width : 992px) {
+    .dropMe {
+        margin-left: 0 !important;
+    }
+}
