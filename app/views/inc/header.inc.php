@@ -12,9 +12,9 @@
 </head>
 <body>
 <?php 
-    if (!isset($noAdmin)) {
-        include_once 'navbarAdmin.inc.php';
-    }else{
-        include_once 'navbarUser.inc.php';
-    }
+    // if (!isset($noAdmin)) {
+    //     include_once 'navbarAdmin.inc.php';
+    // }else{
+    //     include_once 'navbarUser.inc.php';
+    // }
 ?>

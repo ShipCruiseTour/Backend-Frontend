@@ -6,10 +6,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto ulMe">
-        <a class="nav-link active" href="index.php">Home</a>
-        <a class="nav-link active" href="about.php">About</a>
-        <a class="nav-link active" href="place.php">My place<b></b></a>
-        <a class="nav-link active" href="contact.php">Contact Us</a>
+        <a class="nav-link active" href="<?php echo URLROOT; ?>">Home</a>
+        <a class="nav-link active" href="<?php echo URLROOT; ?>cruises/about">About</a>
+        <a class="nav-link active" href="<?php echo URLROOT; ?>cruises/place">My place<b></b></a>
+        <a class="nav-link active" href="<?php echo URLROOT; ?>cruises/contact">Contact Us</a>
       </div>
       <div style="margin-left: 0px !important;" class="navbar-nav ms-auto ulMe">
         <a class="nav-link dropdown-toggle aliMe" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -17,13 +17,13 @@
         </a>
         <ul class="dropdown-menu dropMe">
           <?php if(isset($_SESSION['user_id'])): ?>
-            <li><a class="dropdown-item aliMe" href="reservationCle.php">Vos Reservation</a></li>
+            <li><a class="dropdown-item aliMe" href="<?= URLROOT?>cruises/reservationCle">Vos Reservation</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item aliMe" href="logout.php">Logout</a></li>
+            <li><a class="dropdown-item aliMe" href="<?= URLROOT?>users/logout">Logout</a></li>
             <?php else: ?>
-          <li><a class="dropdown-item aliMe" href="login.php">Login</a></li>
+          <li><a class="dropdown-item aliMe" href="<?= URLROOT?>users/login">Login</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item aliMe" href="signup.php">Signup</a></li>
+          <li><a class="dropdown-item aliMe" href="<?= URLROOT?>users/register">Signup</a></li>
           <?php endif; ?>
         </ul>
       </div>

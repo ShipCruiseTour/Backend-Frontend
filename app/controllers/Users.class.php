@@ -80,7 +80,7 @@ class Users extends Controller{
                 $user = $this->userModel->login($data['email'],$data['password']);
                 if($user){
                     // set The sessions
-                    $_SESSION['user_id'] = $user->id;
+                    $_SESSION['user_id'] = $user->id_u;
                     $_SESSION['user_name'] = $user->userName;
 
                     redirect('posts');

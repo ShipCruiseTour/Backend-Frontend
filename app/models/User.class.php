@@ -1,7 +1,7 @@
 <?php
 class User
 {
-    private $db;
+    private $db; //database
     public function __construct()
     {
         $this->db = new Database;
@@ -31,7 +31,7 @@ class User
         $this->db->query("SELECT * FROM users WHERE Email = :email");
         $this->db->bind(':email',$email);
         $row = $this->db->fetch();
-        $hashed_password = $row->userPassword;
+        $hashed_password = $row->Password;
         if (password_verify($password, $hashed_password)) {
             return $row;
         } else {

@@ -1,4 +1,6 @@
-<?php include_once APPROOT . '/views/inc/header.inc.php' ?>
+<?php include_once APPROOT . '/views/inc/header.inc.php';
+$noFooter ='';
+?>
     <div class="row">
         <div class="col-md-6 mx-auto mt-4">
             <div class="card card-body p-3">
