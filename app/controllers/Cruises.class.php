@@ -2,7 +2,8 @@
 class Cruises extends Controller{
 
     public function __construct(){
-        $this->userCruise = $this->model('Cruise');
+        $this->cruiseModel = $this->model('Cruise');
+        $this->portModel = $this->model('port');
     }
     public function index()
     {
@@ -18,6 +19,18 @@ class Cruises extends Controller{
     }
         public function place()
     {
-        $this->view('cruises/place');
+        // get the Cruise
+        $cruises = $this->cruiseModel->getCruises();
+        $ports = $this->portModel->getPorts();
+        if ($cruises) {
+            $data = [
+                'cruises' => $cruises,
+                'ports' => $ports,
+            ];
+            $this->view('cruises/place',$data);
+        } else {
+            echo('cruise not found');
+        }
+        
     }
 }

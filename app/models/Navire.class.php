@@ -11,7 +11,6 @@ class Cruise
     {
         $this->db->query('SELECT * FROM croisiere');
         $cruises = $this->db->fetchAll();
-        
         if ($cruises)
             return $cruises;
         else

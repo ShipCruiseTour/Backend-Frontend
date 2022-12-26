@@ -71,7 +71,6 @@ class Database
     {
         $this->stmt->execute();
         $results = $this->stmt->fetchAll(PDO::FETCH_OBJ);
-
         return $results;
     }
 
