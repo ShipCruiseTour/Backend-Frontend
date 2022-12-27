@@ -9,7 +9,7 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
         <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
                 <div class="col-md-3 mt-1">
-                    <img class="img-fluid img-responsive rounded product-image" src="layout/images/">
+                    <img class="img-fluid img-responsive rounded product-image" src="<?=URLROOT?>image/"><?=$data['reservations']->image?>
                 </div>
                 <div class="col-md-6 mt-1">
                     <h5>Planet</h5>

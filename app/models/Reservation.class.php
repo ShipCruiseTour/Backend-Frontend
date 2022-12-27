@@ -27,11 +27,31 @@ class Reservation
         else
             return false;
     }
-        public function getReservationBuyIdUser($id)
+        public function getReservationsBuyIdUser($id)
     {
-        $this->db->query('SELECT * FROM reservation WHERE id_user = :id');
+        $this->db->query('SELECT 
+                                reservation.*, 
+                                chambre.*,
+                                croisiere.*,
+                                users.*
+                          FROM 
+                                reservation
+                          INNER JOIN 
+								chambre
+						  ON 
+                                chambre.id_ch = reservation.id_ch 
+						  INNER JOIN 
+                                croisiere 
+						  ON 
+                                croisiere.id_cr = reservation.id_cr
+						  INNER JOIN 
+								users 
+						  ON 
+								users.id_u = reservation.id_user 
+                          WHERE 
+                                id_user = :id');
         $this->db->bind(':id', $id);
-        $reservation = $this->db->fetch();
+        $reservation = $this->db->fetchAll();
         if ($reservation)
             return $reservation;
         else

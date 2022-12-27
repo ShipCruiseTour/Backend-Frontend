@@ -43,11 +43,15 @@ class Cruises extends Controller{
         public function reservationCle()
     {
         // get the Cruise
-        $reservations = $this->reservationModel->getReservationBuyIdUser($_SESSION['user_id']);
+        $reservations = $this->reservationModel->getReservationsBuyIdUser($_SESSION['user_id']);
         if ($reservations) {
             $data = [
                 'reservations' => $reservations,
             ];
+            echo '<pre>';
+            var_dump($data['reservations']['1']);// idont no way
+            echo '</pre>';
+            die();
             $this->view('cruises/reservationCle',$data);
         } else {
             echo('reservations not found');
