@@ -1,5 +1,5 @@
 <?php
-class Cruise
+class Navire
 {   
     private $db;
 
@@ -7,35 +7,33 @@ class Cruise
     {
         $this->db = new Database;
     }
-    public function getCruises()
+    public function getNavires()
     {
-        $this->db->query('SELECT * FROM croisiere');
-        $cruises = $this->db->fetchAll();
-        if ($cruises)
-            return $cruises;
+        $this->db->query('SELECT * FROM narive');
+        $navires = $this->db->fetchAll();
+        if ($navires)
+            return $navires;
         else
             return false;
     }
-    public function getCruise($id)
+    public function getNavire($id)
     {
-        $this->db->query('SELECT * FROM croisiere WHERE id_cr = :id');
+        $this->db->query('SELECT * FROM narive WHERE id_n = :id');
         $this->db->bind(':id', $id);
-        $cruise = $this->db->fetch();
-        if ($cruise)
-            return $cruise;
+        $navire = $this->db->fetch();
+        if ($navire)
+            return $navire;
         else
             return false;
     }
 
-    public function updateCruise($cruise)
+    public function updateNavire($navire)
     {
-        $this->db->query('UPDATE croisiere SET port_dar = :dariver, port_dep = :depart, image = :image, nb_nuit = :nuit,	prix_cr = prix, date-dep = now() WHERE id_cr=:id');
-        $this->db->bind(':dariver', $cruise['portAri']);
-        $this->db->bind(':depart', $cruise['portDep']);
-        $this->db->bind(':image', $cruise['image']);
-        $this->db->bind(':nuit', $cruise['nb_nuit']);
-        $this->db->bind(':prix', $cruise['prix']);
-        $this->db->bind(':id', $cruise['id']);
+        $this->db->query('UPDATE narive SET name_n = :name_navire, nb_ch = :numero_ch, nb_pl = :nb_pl WHERE id_n=:id');
+        $this->db->bind(':name_navire', $navire['navireName']);
+        $this->db->bind(':numero_ch', $navire['nbr_ch']);
+        $this->db->bind(':nb_pl', $navire['nb_pl']);
+        $this->db->bind(':id', $navire['id']);
         if ($this->db->execute()) {
             return true;
         } else {
@@ -43,9 +41,9 @@ class Cruise
         }
         
     }
-    public function deleteCruise($id)
+    public function deleteNavire($id)
     {
-        $this->db->query('DELETE FROM croisiere WHERE id_cr = :id');
+        $this->db->query('DELETE FROM narive WHERE id_n = :id');
         $this->db->bind(':id', $id);
         if ($this->db->execute()) {
             return true;
@@ -54,14 +52,12 @@ class Cruise
         }
         
     }
-    public function addCruise($cruise)
+    public function addNavire($navire)
     { 
-        $this->db->query("INSERT INTO croisiere (port_dar, port_dep , image , nb_nuit , prix_cr ,  date-dep) VALUES (:dariver, :depart,:image,:nuit,prix, now())");
-        $this->db->bind(':dariver', $cruise['portAri']);
-        $this->db->bind(':depart', $cruise['portDep']);
-        $this->db->bind(':image', $cruise['image']);
-        $this->db->bind(':nuit', $cruise['nb_nuit']);
-        $this->db->bind(':prix', $cruise['prix']);
+        $this->db->query("INSERT INTO narive (name_n, nb_ch , nb_pl) VALUES (:name_navire, :numero_ch,:nb_pl)");
+        $this->db->bind(':name_navire', $navire['navireName']);
+        $this->db->bind(':numero_ch', $navire['nbr_ch']);
+        $this->db->bind(':nb_pl', $navire['nb_pl']);
         if ($this->db->execute()) {
             return true;
         } else {

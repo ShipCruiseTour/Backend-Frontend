@@ -10,7 +10,7 @@ class Port
 
     public function getPorts()
     {
-        $this->db->query('SELECT * FROM Port');
+        $this->db->query('SELECT * FROM port');
         $ports = $this->db->fetchAll();
         if ($ports)
             return $ports;

@@ -83,7 +83,7 @@ class Users extends Controller{
                     $_SESSION['user_id'] = $user->id_u;
                     $_SESSION['user_name'] = $user->userName;
 
-                    redirect('posts');
+                    redirect('cruises');
                 }else {
                     // password incorrect
                     $data['password_err'] = 'Password Incorrect';
