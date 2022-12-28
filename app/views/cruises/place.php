@@ -46,11 +46,12 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
 <div class="croisieres">
     <?php foreach ($data['cruises'] as $cruise) : ?>
         <div class="card" style="width: 13rem;">
-            <img src="<?= URLROOT?>image/<?= $cruise->image ?>" class="card-img-top" alt="...">
+            <img src="<?= URLROOT?>image/<?= $cruise->image ?>" class="card-img-top" alt="croisiere">
             <div class="card-body">
                 <h5 style="color: black;" class="card-title"><?= $cruise->name_cr ?></h5>
+                <div class="d-flex justify-content-center">
                 <a href="<?= URLROOT?>cruise/show/<?= $cruise->id_cr ?>" class="btn btnMe">VIEW</a>
-                <a href="<?= URLROOT?>cruise/reserve/<?= $cruise->id_cr ?>" class="btn btnMe">RESERVE</a>
+                </div>
             </div>
         </div>
     <?php endforeach ?>

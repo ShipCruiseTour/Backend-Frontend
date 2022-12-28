@@ -48,14 +48,32 @@ class Cruises extends Controller{
             $data = [
                 'reservations' => $reservations,
             ];
-            echo '<pre>';
-            var_dump($data['reservations']['1']);// idont no way
-            echo '</pre>';
-            die();
             $this->view('cruises/reservationCle',$data);
         } else {
             echo('reservations not found');
         }
         
+    }
+    public function deleteReservation($id_resrvation)
+    {
+        $this->reservationModel->deleteReservation($id_resrvation);
+        $this->view('cruises/index');
+    }
+    public function show($id)
+    {  
+        $cruise = $this->cruiseModel->showCruise($id);
+        if ($cruise) {
+            $data = [
+                'cruise' => $cruise
+            ];
+            $this->view('cruises/show',$data);
+        } else {
+            echo('cruise not found');
+        }
+    }
+
+    public function reserve($id)   
+    {
+        echo 'hi';
     }
 }

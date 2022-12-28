@@ -74,4 +74,28 @@ class Cruise
         }
         
     }
+    public function showCruise($id)
+    {
+        $this->db->query('SELECT 
+                                *, PO.nameP as nameP_d , PP.nameP as nameP_a
+                            FROM 
+                                port PO , 
+                                port PP , 
+                                croisiere co , 
+                                narive na 
+                            where 
+                                co.port_dep=PO.id_p 
+                            and 
+                                co.port_dar=PP.id_p 
+                            and 
+                                co.id_nav = na.id_n
+                            and
+                                id_cr = :id');
+        $this->db->bind(':id', $id);
+        $cruise = $this->db->fetch();
+        if ($cruise)
+            return $cruise;
+        else
+            return false;
+    }
 }

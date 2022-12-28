@@ -22,8 +22,8 @@ class Core
         if (isset($url[0])) {
             if (file_exists('../app/controllers/' . ucwords($url[0]) . '.class.php')) {
                 $this->Controller = ucwords($url[0]);
-                unset($url[0]);
             }
+            unset($url[0]);
         }
         //require the controller
         require_once '../app/controllers/' . $this->Controller . '.class.php';
@@ -34,9 +34,12 @@ class Core
         if (isset($url[1])) {
             if (method_exists($this->Controller, $url[1])) {
                 $this->method = $url[1];
-                unset($url[1]);
             }
+            unset($url[1]);
         }
+
+        // var_dump(array_values($url));
+
     
         $this->param = $url ? array_values($url) : []; //ternary operator
         //call the function

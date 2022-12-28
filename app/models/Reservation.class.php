@@ -30,25 +30,25 @@ class Reservation
         public function getReservationsBuyIdUser($id)
     {
         $this->db->query('SELECT 
-                                reservation.*, 
-                                chambre.*,
-                                croisiere.*,
-                                users.*
-                          FROM 
-                                reservation
-                          INNER JOIN 
-								chambre
-						  ON 
-                                chambre.id_ch = reservation.id_ch 
-						  INNER JOIN 
-                                croisiere 
-						  ON 
-                                croisiere.id_cr = reservation.id_cr
-						  INNER JOIN 
-								users 
-						  ON 
-								users.id_u = reservation.id_user 
-                          WHERE 
+                                *, PO.nameP as nameP_d , PP.nameP as nameP_a
+                            FROM 
+                                port PO , 
+                                port PP , 
+                                croisiere co , 
+                                narive na , 
+                                chambre ch , 
+                                reservation re 
+                            where 
+                                re.id_cr= co.id_cr 
+                            and 
+                                re.id_ch=ch.id_ch 
+                            and 
+                                co.port_dep=PO.id_p 
+                            and 
+                                co.port_dar=PP.id_p 
+                            and 
+                                co.id_nav=na.id_n
+                            and 
                                 id_user = :id');
         $this->db->bind(':id', $id);
         $reservation = $this->db->fetchAll();
