@@ -14,6 +14,7 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
             <span>Port Départ : <?=$data['cruise']->nameP_d?></span>
             <span>Port D'arrivée : <?=$data['cruise']->nameP_a?></span>
             <span>Nombre De Personne : <?=$data['cruise']->nb_pl?></span>
+            <span>Nombre De chambre : <?=$data['cruise']->nb_ch?></span>
         </div>
     </div>
 </div>

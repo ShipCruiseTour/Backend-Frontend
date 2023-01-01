@@ -22,6 +22,10 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
                         <span>port départ : <?=$reservation->nameP_d?></span><br>
                         <span class="dot"></span>
                         <span>port d'arrivé : <?=$reservation->nameP_a?></span>
+                        <?php if ($reservation->id_t_ch != 1 ):?>
+                        <span class="dot"></span>
+                        <span>numero de chambre : <?=$reservation->id_ch?></span>
+                        <?php endif?>
                     </div>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">

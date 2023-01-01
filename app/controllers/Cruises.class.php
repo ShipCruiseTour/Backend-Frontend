@@ -10,7 +10,16 @@ class Cruises extends Controller{
     }
     public function index()
     {
-        $this->view('cruises/index');
+         // get the last 4 Cruise
+         $cruises = $this->cruiseModel->getLast4Cruises();
+         if ($cruises) {
+             $data = [
+                 'cruises' => $cruises
+             ];
+             $this->view('cruises/index',$data);
+         } else {
+             die('cruise not found');
+         }
     }    
     public function about()
     {
@@ -74,6 +83,10 @@ class Cruises extends Controller{
 
     public function reserve($id)   
     {
-        echo 'hi';
+        $cruise = $this->reservationModel->showReservation($id);
+        $data = [
+
+        ];
+        $this->view('cruises/reserve',$data);
     }
 }

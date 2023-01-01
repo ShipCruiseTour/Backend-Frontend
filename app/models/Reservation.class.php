@@ -37,6 +37,7 @@ class Reservation
                                 croisiere co , 
                                 narive na , 
                                 chambre ch , 
+                                typechambre tch , 
                                 reservation re 
                             where 
                                 re.id_cr= co.id_cr 
@@ -48,6 +49,8 @@ class Reservation
                                 co.port_dar=PP.id_p 
                             and 
                                 co.id_nav=na.id_n
+                            and 
+                                ch.type_ch=tch.id_t_ch
                             and 
                                 id_user = :id');
         $this->db->bind(':id', $id);

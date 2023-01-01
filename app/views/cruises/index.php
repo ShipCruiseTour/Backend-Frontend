@@ -20,38 +20,17 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
     </svg>
 </h2>
 <div class="croisieres">
-    <div class="card" style="width: 13rem;">
-        <img src="<?= URLROOT ?>image/hawai.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 style="color: black;" class="card-title">hawai</h5>
-            <a href="<?= URLROOT ?>" class="btn btnMe">VIEW</a>
-            <a href="<?= URLROOT ?>" class="btn btnMe">RESERVE</a>
+    <?php foreach ($data['cruises'] as $cruise) : ?>
+        <div class="card" style="width: 13rem;">
+            <img src="<?= URLROOT?>image/<?= $cruise->image ?>" class="card-img-top" alt="croisiere">
+            <div class="card-body">
+                <h5 style="color: black;" class="card-title"><?= $cruise->name_cr ?></h5>
+                <div class="d-flex justify-content-center">
+                <a href="<?= URLROOT?>cruise/show/<?= $cruise->id_cr ?>" class="btn btnMe">VIEW</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card" style="width: 13rem;">
-        <img src="<?= URLROOT ?>image/maldive.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 style="color: black;" class="card-title">maldive</h5>
-            <a href="<?= URLROOT ?>" class="btn btnMe">VIEW</a>
-            <a href="<?= URLROOT ?>" class="btn btnMe">RESERVE</a>
-        </div>
-    </div>
-    <div class="card" style="width: 13rem;">
-        <img src="<?= URLROOT ?>image/canary.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 style="color: black;" class="card-title">canary</h5>
-            <a href="<?= URLROOT ?>" class="btn btnMe">VIEW</a>
-            <a href="<?= URLROOT ?>" class="btn btnMe">RESERVE</a>
-        </div>
-    </div>
-    <div class="card" style="width: 13rem;">
-        <img src="<?= URLROOT ?>image/amazon.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 style="color: black;" class="card-title">amazon</h5>
-            <a href="<?= URLROOT ?>" class="btn btnMe">VIEW</a>
-            <a href="<?= URLROOT ?>" class="btn btnMe">RESERVE</a>
-        </div>
-    </div>
+    <?php endforeach ?>
 </div>
 <div style="display: flex; justify-content: center;">
     <a href="http://localhost/Backend-Frontend/cruises/place" class="btn btnMe btnMe2">VIEW MORE</a>

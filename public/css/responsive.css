@@ -34,38 +34,6 @@
     }
 }
 
-
-
-
-@media screen and (max-width : 832px) {
-    .info {
-        height: 46vh;
-    }
-
-    .info span {
-        font-size: 15px;
-    }
-
-    .INFO {
-        padding: 0 50px;
-        width: 55%;
-        height: 80vh;
-        padding-top: 190px;
-    }
-
-    .imgCroisiere {
-        padding: 20%;
-        height: 50vh;
-    }
-}
-@media (max-width: 780px) {
-    .INFO {
-        padding: 0 50px;
-        width: 55%;
-        height: 82vh;
-        padding-top: 216px;
-    }
-}
 @media (max-width: 670px) {
     .contact .formulaire {
         display: flex;
@@ -88,12 +56,6 @@
         gap: 10px;
         width: 100%;
     }
-    .INFO {
-        padding: 0 50px;
-        width: 74%;
-        height: 85vh;
-        padding-top: 241px;
-    }
 
 }
 
@@ -107,29 +69,5 @@
         color: #FE8E40;
         -webkit-text-stroke-color: #000000;
         -webkit-text-stroke-width: 1px;
-    }
-    .INFO {
-        padding: 0 50px;
-        width: 80%;
-        height: 68vh;
-        padding-top: 129px;
-    }
-}
-@media screen and (max-width : 375px) {
-    .info span {
-        font-size: 9px;
-    }
-    .INFO {
-        padding: 0 50px;
-        width: 80%;
-        height: 49vh;
-        padding-top: 15px;
-    }
-}
-@media screen and (max-width : 360px) {
-    .INFO {
-        padding: 0 50px;
-        width: 80%;
-        height: 48vh;
     }
 }

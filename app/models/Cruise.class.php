@@ -17,6 +17,16 @@ class Cruise
         else
             return false;
     }
+    public function getLast4Cruises()
+    {
+        $this->db->query('SELECT * FROM croisiere ORDER BY id_cr DESC LIMIT 4');
+        $cruises = $this->db->fetchAll();
+        
+        if ($cruises)
+            return $cruises;
+        else
+            return false;
+    }
     public function getCruise($id)
     {
         $this->db->query('SELECT * FROM croisiere WHERE id_cr = :id');
