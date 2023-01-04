@@ -1,7 +1,7 @@
 <?php if (!isset($noFooter)) : ?>
     <footer class="navbar-light bg-light">
         <div class="logo_footer navbar-brand">
-            <a href="index.php">
+            <a href="<?php echo URLROOT; ?>">
                 <img src="<?= URLROOT ?>image/ShipCruiseTour.png" alt="logo">
             </a>
         </div>

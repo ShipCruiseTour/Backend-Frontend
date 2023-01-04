@@ -116,6 +116,6 @@ class Users extends Controller{
         $_SESSION['users_id'] = null;
         $_SESSION['name'] = null;
         session_destroy();
-        redirect('users/login');
+        redirect('');
     }
 }

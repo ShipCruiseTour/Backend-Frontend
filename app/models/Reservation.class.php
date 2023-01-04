@@ -89,10 +89,11 @@ class Reservation
     }
     public function addReservation($reservation){
 
-        $this->db->query("INSERT INTO reservation (date_re, prix_re , id_cr , id_user,id_ch) VALUES (:date_re, :prix,:id_cr,:id_user,:id_ch)");
+        $this->db->query("INSERT INTO reservation (date_re, prix_re , id_cr , id_user,id_ch) VALUES
+         (:date_re, :prix,:id_cr,:id_user,:id_ch)");
         $this->db->bind(':date_re', $reservation['date_re']);
         $this->db->bind(':prix', $reservation['prix']);
-        $this->db->bind(':id_ch', $reservation['id_cr']);
+        $this->db->bind(':id_cr', $reservation['id_cr']);
         $this->db->bind(':id_user', $reservation['id_user']);
         $this->db->bind(':id_ch', $reservation['id_ch']);
         if ($this->db->execute()) {
@@ -101,9 +102,5 @@ class Reservation
             return false;
         }
         
-    }
-    public function showReservation()
-    {
-        echo 'hi';
     }
 }
