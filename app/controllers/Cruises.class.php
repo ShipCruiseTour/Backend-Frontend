@@ -83,10 +83,20 @@ class Cruises extends Controller{
 
     public function reserve($id)   
     {
-        $cruise = $this->reservationModel->showReservation($id);
-        $data = [
-
-        ];
-        $this->view('cruises/reserve',$data);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+        }
+        $cruise = $this->cruiseModel->getCruise($id);
+        $typeCh = $this->typechambreModel->getTypechambres();
+        if ($cruise) {
+            $data = [
+                'cruise' => $cruise,
+                'typeCh' => $typeCh
+            ];
+            $this->view('cruises/reserve',$data);
+        }
+        else {
+            echo('cruise not found');
+        }
     }
 }
