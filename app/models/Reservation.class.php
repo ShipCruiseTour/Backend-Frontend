@@ -101,6 +101,5 @@ class Reservation
         } else {
             return false;
         }
-        
     }
 }

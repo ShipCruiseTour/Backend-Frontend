@@ -76,18 +76,20 @@ class Cruises extends Controller
         $anneeActuelle = date('y');
         $moisActuelle = date('m');
         $jourActuelle = date('d');
+        // 2018-04-06 -  2018-04-01  
 
-        if ($annee == $anneeActuelle) {
-            if ($mois == $moisActuelle) {
-                if ($jourActuelle == $jour-2) {
+        if ($annee >= $anneeActuelle) {
+            if ($mois >= $moisActuelle) {
+                if ( ($jour - $jourActuelle) >= 2) {
                     $this->reservationModel->deleteReservation($id_resrvation);
                     $this->view('cruises/index');
                 }
+                else {
+                    echo 'You can not delete reservation';
+                    redirectTime('cruises/reservationCle');
+                }
             }
-        } else {
-            echo 'You can not delete reservation';
-            redirectTime('cruises/reservationCle');
-        }
+        } 
     }
     public function show($id)
     {
