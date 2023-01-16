@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= URLROOT ?>css/style.css">
     <link rel="stylesheet" href="<?= URLROOT ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= URLROOT ?>css/responsive.min.css">
+    <link rel="stylesheet" href="<?= URLROOT ?>css/responsive.css">
     <link rel="stylesheet" href="<?= URLROOT ?>css/font-awesome.min.css">
     <title><?php echo APPNAME;?></title>
 </head>

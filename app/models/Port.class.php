@@ -19,7 +19,7 @@ class Port
     }
     public function getPort($id)
     {
-        $this->db->query('SELECT * FROM Port WHERE id_p = :id');
+        $this->db->query('SELECT * FROM port WHERE id_p = :id');
         $this->db->bind(':id', $id);
         $port = $this->db->fetch();
         if ($port)
@@ -30,7 +30,7 @@ class Port
 
     public function updatePort($port)
     {
-        $this->db->query('UPDATE Port SET nameP = :np WHERE id_p=:id');
+        $this->db->query('UPDATE port SET nameP = :np WHERE id_p=:id');
         $this->db->bind(':np', $port['namePort']);
         $this->db->bind(':id', $port['id']);
         if ($this->db->execute()) {
@@ -42,7 +42,7 @@ class Port
     }
     public function deletePort($id)
     {
-        $this->db->query('DELETE FROM Port WHERE id_p = :id');
+        $this->db->query('DELETE FROM port WHERE id_p = :id');
         $this->db->bind(':id', $id);
         if ($this->db->execute()) {
             return true;
@@ -53,8 +53,8 @@ class Port
     }
     public function addPort($port)
     { 
-        $this->db->query("INSERT INTO Port (nameP) VALUES (:np)");
-        $this->db->bind(':np', $port['namePort']);
+        $this->db->query("INSERT INTO port (nameP) VALUES (:np)");
+        $this->db->bind(':np', $port);
         if ($this->db->execute()) {
             return true;
         } else {

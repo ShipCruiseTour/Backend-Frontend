@@ -33,3 +33,41 @@
         margin-left: 0 !important;
     }
 }
+
+@media (max-width: 670px) {
+    .contact .formulaire {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-direction: column;
+    }
+
+    .contact .formulaire .image_formulaire {
+        width: 220px;
+        height: 200px;
+        padding: 20px;
+        background-size: cover;
+        border-radius: 30px;
+    }
+
+    .contact .formulaire .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width : 514px) {
+    .contact .titre_contact {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        text-align: center;
+        color: #FE8E40;
+        -webkit-text-stroke-color: #000000;
+        -webkit-text-stroke-width: 1px;
+    }
+}
