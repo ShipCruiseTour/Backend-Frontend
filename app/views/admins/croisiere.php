@@ -27,7 +27,7 @@ $noFooter = '';
                 <td><?=$cruise->nb_nuit?> nuits</td>
                 <td><?=$cruise->prix_cr?>dh</td>
                 <td><?=$cruise->date_dep?></td>
-                <td><?=$cruise->nameN?></td>
+                <td><?=$cruise->name_n?></td>
                 <td>
                     <a href="<?=URLROOT?>admins/croisiereDelete/<?=$cruise->id_cr?>" class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete </a>
                 </td>

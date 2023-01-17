@@ -97,7 +97,7 @@ class Admins extends Controller
         if ($_SESSION['user_id'] == null) {
             redirect('admins');
         } else {
-            $croisieres = $this->cruiseModel->getCruises();
+            $croisieres = $this->adminModel->getCruises();
             $data = [
                 'croisieres' => $croisieres
             ];
@@ -243,7 +243,7 @@ class Admins extends Controller
             $poDa = $_POST['poDa'];
             $prix = $_POST['prix'];
             $dateDe = $_POST['dateDe'];
-            $image = $_POST['img'];
+            $image = $_FILES['img']['name'];
             $nb_nuit = $_POST['nb_nuit'];
             $name_cr = $_POST['name_cr'];
 

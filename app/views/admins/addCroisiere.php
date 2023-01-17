@@ -81,7 +81,7 @@ $noFooter = '';
         <div class="form-group labelInput11">
             <label class="col-sm-2 control-label">Image</label>
             <div class="col-sm-10 col-md-6 input11">
-                <input type="file" name="img" accept="image/*" style="margin-bottom: 10px !important; width: 100%; background-color: #0000001a;padding: 10px;border-radius: 10px;box-shadow: 0 4px 4px black;" >
+                <input type="file" name="img" accept="image/*" style="margin-bottom: 10px !important; width: 100%; background-color: #0000001a;padding: 10px;border-radius: 10px;box-shadow: 0 4px 4px black;" required>
             </div>
         </div>
         <!-- End Tags image -->
