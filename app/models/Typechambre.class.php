@@ -54,7 +54,7 @@ class Typechambre
     }
     public function addTypechambre($name , $prix)
     { 
-        $this->db->query("INSERT INTO typechambre (Name , Prix , Capacite) VALUES (:dariver, :name,:Prix,:nbre_per)");
+        $this->db->query("INSERT INTO typechambre (Name , Prix) VALUES (:name,:Prix)");
         $this->db->bind(':name', $name);
         $this->db->bind(':Prix', $prix);
         if ($this->db->execute()) {

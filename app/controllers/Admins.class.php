@@ -189,9 +189,9 @@ class Admins extends Controller
         if ($_SESSION['user_id'] == null) {
             redirect('admins');
         } else {
-            $ports = $this->typeRoomModel->getTypechambres();
+            $typeChambres = $this->typeRoomModel->getTypechambres();
             $data = [
-                'ports' => $ports
+                'typeChambres' => $typeChambres
             ];
             $count = $this->adminModel->countItems('id_t_ch','typechambre');
             if ($count == 0) {
@@ -328,7 +328,7 @@ class Admins extends Controller
 
     public function typeChambreDelete($id)
     {
-        $this->portModel->deleteTypechambre($id);
+        $this->typeRoomModel->deleteTypechambre($id);
         redirectHome('back');
     }
 
