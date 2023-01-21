@@ -280,7 +280,7 @@ class Admins extends Controller
             $poDa = $_POST['poDa'];
             $prix = $_POST['prix'];
             $dateDe = $_POST['dateDe'];
-            $image = $_FILES['img'];
+            $image = $_FILES['img']['name'];
             $nb_nuit = $_POST['nb_nuit'];
             $name_cr = $_POST['name_cr'];
 
