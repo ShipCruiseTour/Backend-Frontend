@@ -109,4 +109,13 @@ class Cruise
         else
             return false;
     }
+    public function chercher($date, $navire, $portDarr, $portDep)
+    {
+        
+        $sql = "SELECT * FROM croisiere" . $date . $navire . $portDarr . $portDep;
+        $this->db->query($sql);
+        $this->db->execute();
+        $this->db->fetchAll();
+        return $this->db->fetchAll();
+    }
 }

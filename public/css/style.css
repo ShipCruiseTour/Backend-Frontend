@@ -603,7 +603,8 @@ h2 {
   margin: 20px 0;
 }
 
-.selects select {
+.selects select,
+.selects input {
   background: #ffffff;
   border: 1px solid #000000;
   border-radius: 17px;
