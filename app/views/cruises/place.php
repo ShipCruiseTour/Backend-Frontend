@@ -6,19 +6,19 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
     <div class="selects">
         <input type="date" name="date" placeholder="Date">
         <select class="selectpicker" name="Navire">
-            <option selected disabled value="0">Narive</option>
+            <option selected value="0">Narive</option>
             <?php foreach ($data['navires'] as $navire): ?>
                 <option value="<?= $navire->id_n ?>"><?= $navire->name_n ?></option>
             <?php endforeach ?>
         </select>
         <select class="selectpicker" name="PortArr">
-            <option selected disabled value="0">Port d'arrivée</option>
+            <option selected value="0">Port d'arrivée</option>
             <?php foreach ($data['ports'] as $port): ?>
                 <option value="<?= $port->id_p ?>"><?= $port->nameP ?></option>
             <?php endforeach ?>
         </select>
         <select class="selectpicker" name="PortDep">
-            <option selected disabled value="0">Port départ</option>
+            <option selected value="0">Port départ</option>
             <?php foreach ($data['ports'] as $port): ?>
                 <option value="<?= $port->id_p ?>"><?= $port->nameP ?></option>
             <?php endforeach ?>
