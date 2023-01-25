@@ -254,13 +254,13 @@ class Cruises extends Controller
                 $sql = ' WHERE '.$sqlArrayNotEmpty[0];
             }
             if ( count($sqlArrayNotEmpty) == 2 ) {
-                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . 'AND' . $sqlArrayNotEmpty[1];
+                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . ' AND ' . $sqlArrayNotEmpty[1];
             }
             if ( count($sqlArrayNotEmpty) == 3 ) {
-                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . 'AND' . $sqlArrayNotEmpty[1] . 'AND' . $sqlArrayNotEmpty[2];
+                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . ' AND ' . $sqlArrayNotEmpty[1] . ' AND ' . $sqlArrayNotEmpty[2];
             }
             if ( count($sqlArrayNotEmpty) == 4 ) {
-                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . 'AND' . $sqlArrayNotEmpty[1] . 'AND' . $sqlArrayNotEmpty[2] . 'AND' . $sqlArrayNotEmpty[3];
+                $sql = ' WHERE ' . $sqlArrayNotEmpty[0] . ' AND ' . $sqlArrayNotEmpty[1] . ' AND ' . $sqlArrayNotEmpty[2] . ' AND ' . $sqlArrayNotEmpty[3];
             }
             $cruises = $this->cruiseModel->chercher($sql);
             $ports = $this->portModel->getPorts();
