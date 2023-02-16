@@ -4,8 +4,8 @@ $noFooter ='';
     <div class="row">
         <div class="col-md-6 mx-auto mt-4">
             <div class="card card-body p-3">
-                <h2>Create Account</h2>
-                <span class="mb-2">*Please fill all the information to Create your Account</span>
+                <h2>Login Account</h2>
+                <span class="mb-2">*Please fill all the information to Login your Account</span>
                 <form action="<?= URLROOT ?>users/login" method="POST">
                     <!-- email input -->
                     <div class="form-group">

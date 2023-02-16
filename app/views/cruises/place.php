@@ -4,7 +4,7 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
 ?>
 <form action="<?php echo URLROOT; ?>cruises/trie" method="post">
     <div class="selects">
-        <input type="date" name="date" placeholder="Date">
+        <input type="date" id="date_reservation" name="date" placeholder="Date">
         <select class="selectpicker" name="Navire">
             <option selected value="0">Narive</option>
             <?php foreach ($data['navires'] as $navire): ?>
@@ -27,8 +27,11 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
     </div>
 </form>
 <div class="croisieres">
-    <?php foreach ($data['cruises'] as $cruise): ?>
-        <div class="card" style="width: 13rem;">
+    <?php
+        $i = 0;
+        foreach ($data['cruises'] as $cruise): ?>
+        <div class="card" id="cardHidden<?=$i?>" style="width: 13rem;">
+            <input type="hidden" id="cruiseHidden<?=$i?>" value="<?= $cruise->date_dep ?>">
             <img src="<?= URLROOT ?>image/<?= $cruise->image ?>" class="card-img-top" alt="croisiere">
             <div class="card-body">
                 <h5 style="color: black;" class="card-title">
@@ -39,6 +42,10 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
                 </div>
             </div>
         </div>
-    <?php endforeach ?>
+    <?php 
+        $i++;
+        endforeach ?>
+    <input type="hidden" id="taille" value="<?= $i ?>">
 </div>
+<div id="pagination"></div>
 <?php include_once APPROOT . '/views/inc/footer.inc.php' ?>

@@ -8,7 +8,7 @@ include_once APPROOT . '/views/inc/navbarUser.inc.php';
         <label for="Prix">Prix de croisiere</label>
         <input type="text" readonly  name="prix" value="<?=$data['cruise']->prix_cr?> DH">
         <label for="date">Date de reservation</label>
-        <input type="date" name="date" placeholder="Date de reservation" required="required">
+        <input id = "date_reservation" type="date" name="date" placeholder="Date de reservation" required="required">
         <label for="prixChambre">Type de Chambre</label>
         <select name="id_prixChambre" class="selectpicker" required="required">
             <option selected disabled>Type de chambre</option>
