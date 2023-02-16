@@ -1,5 +1,5 @@
 <?php
-// error_reporting(0);
+error_reporting(0);
 include_once '../app/loader.php';
 include_once '../app/views/inc/header.inc.php';
 $core = new Core();
