@@ -227,7 +227,7 @@ class Cruises extends Controller
             }
 
             if ($date != '' && !empty($date)) {
-                $sqldate = 'date_dep ="'.$date.'"';
+                $sqldate = 'MONTH(date_dep) ="'.$date.'"';
             }else{
                 $sqldate = '';
             }
