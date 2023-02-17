@@ -255,8 +255,6 @@ a:-webkit-any-link {
   fill: none;
 }
 
-.st10 {}
-
 #cloud1 {
   animation: cloud003 15s linear infinite;
 }
@@ -463,8 +461,6 @@ footer {
   line-height: normal;
 }
 
-.desc_grid_items {}
-
 .desc_grid_items .logo_apk img {
   border-radius: 15px;
   width: 65px;
@@ -520,6 +516,10 @@ h2 {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border-radius: 20px !important;
   font-size: 17px !important;
+  color: white;
+}
+.btnMe:hover{
+  color: black;
 }
 
 .btnMe2 {
@@ -724,4 +724,15 @@ h5 {
 .reserveSubmit {
   display: flex;
   justify-content: center;
+}
+
+/* pagination */
+#pagination{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.block{
+  display: block;
 }

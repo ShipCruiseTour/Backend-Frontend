@@ -135,7 +135,6 @@ class Cruises extends Controller
             echo 'You can not delete reservation';
             redirectTime('cruises/reservationCle');
         }
-
     }
     public function show($id)
     {

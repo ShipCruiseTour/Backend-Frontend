@@ -1,6 +1,6 @@
 <?php
 class Cruise
-{   
+{
     private $db;
 
     public function __construct()
@@ -9,33 +9,42 @@ class Cruise
     }
     public function getCruises()
     {
-        $this->db->query('SELECT * FROM croisiere');
+        $this->db->query('SELECT * FROM croisiere
+        WHERE (YEAR(date_dep) = YEAR(NOW()) AND  MONTH(date_dep) = MONTH(NOW()) AND DAY(date_dep) >= DAY(NOW()))
+        OR (YEAR(date_dep) = YEAR(NOW()) AND MONTH(date_dep) > MONTH(NOW()))
+        OR (YEAR(date_dep) > YEAR(NOW()))');
         $cruises = $this->db->fetchAll();
-        
-        if ($cruises)
+
+        if ($cruises) {
             return $cruises;
-        else
+        } else {
             return false;
+        }
+
     }
     public function getLast4Cruises()
     {
         $this->db->query('SELECT * FROM croisiere ORDER BY id_cr DESC LIMIT 4');
         $cruises = $this->db->fetchAll();
-        
-        if ($cruises)
+
+        if ($cruises) {
             return $cruises;
-        else
+        } else {
             return false;
+        }
+
     }
     public function getCruise($id)
     {
         $this->db->query('SELECT * FROM croisiere WHERE id_cr = :id');
         $this->db->bind(':id', $id);
         $cruise = $this->db->fetch();
-        if ($cruise)
+        if ($cruise) {
             return $cruise;
-        else
+        } else {
             return false;
+        }
+
     }
 
     public function updateCruise($cruise)
@@ -54,7 +63,7 @@ class Cruise
         } else {
             return false;
         }
-        
+
     }
     public function deleteCruise($id)
     {
@@ -65,10 +74,10 @@ class Cruise
         } else {
             return false;
         }
-        
+
     }
-    public function addCruise($navire,$poDe,$poDa,$prix,$dateDe,$image,$nb_nuit,$name_cr)
-    {                                                                
+    public function addCruise($navire, $poDe, $poDa, $prix, $dateDe, $image, $nb_nuit, $name_cr)
+    {
         $this->db->query("INSERT INTO croisiere (port_dar, port_dep , image , nb_nuit , prix_cr ,  date_dep, name_cr,id_nav) VALUES (:dariver, :depart,:image,:nuit,:prix, :date_dep,:name_croisiere ,:id_navire)");
         $this->db->bind(':dariver', $poDa);
         $this->db->bind(':depart', $poDe);
@@ -83,35 +92,37 @@ class Cruise
         } else {
             return false;
         }
-        
+
     }
     public function showCruise($id)
     {
-        $this->db->query('SELECT 
+        $this->db->query('SELECT
                                 *, PO.nameP as nameP_d , PP.nameP as nameP_a
-                            FROM 
-                                port PO , 
-                                port PP , 
-                                croisiere co , 
-                                narive na 
-                            where 
-                                co.port_dep=PO.id_p 
-                            and 
-                                co.port_dar=PP.id_p 
-                            and 
+                            FROM
+                                port PO ,
+                                port PP ,
+                                croisiere co ,
+                                narive na
+                            where
+                                co.port_dep=PO.id_p
+                            and
+                                co.port_dar=PP.id_p
+                            and
                                 co.id_nav = na.id_n
                             and
                                 id_cr = :id');
         $this->db->bind(':id', $id);
         $cruise = $this->db->fetch();
-        if ($cruise)
+        if ($cruise) {
             return $cruise;
-        else
+        } else {
             return false;
+        }
+
     }
     public function chercher($sqlEnd)
     {
-        
+
         $sql = "SELECT * FROM croisiere" . $sqlEnd;
         $this->db->query($sql);
         $this->db->execute();

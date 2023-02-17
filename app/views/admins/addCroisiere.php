@@ -72,7 +72,7 @@ $noFooter = '';
         <div class="form-group form-group-lg labelInput11">
             <label class="col-sm-2 control-label">date de depart</label>
             <div class="col-sm-10 col-md-6 input11">
-                <input type="date" name="dateDe" class="form-control" required="required"
+                <input type="date" id="date_reservation" name="dateDe" class="form-control" required="required"
                     placeholder="date depear" />
             </div>
         </div>
