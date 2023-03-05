@@ -27,6 +27,13 @@ class Port
         else
             return false;
     }
+    public function getPortByIdReturnName($id)
+    {
+        $this->db->query('SELECT * FROM port WHERE id_p = :id');
+        $this->db->bind(':id', $id);
+        $port = $this->db->fetch();
+        return($port->nameP);
+    }
 
     public function updatePort($port)
     {

@@ -11,6 +11,7 @@ $noFooter = '';
                 <td>#ID</td>
                 <td>name</td>
                 <td>port_dep</td>
+                <td>trager</td>
                 <td>port_dar</td>
                 <td>nombre de nuit</td>
                 <td>prix_cr</td>
@@ -23,13 +24,15 @@ $noFooter = '';
                 <td><?=$cruise->id_cr?></td>
                 <td><?=$cruise->name_cr?></td>
                 <td><?=$cruise->nameP_d?></td>
+                <td><?=$cruise->trager?></td>
                 <td><?=$cruise->nameP_a?></td>
                 <td><?=$cruise->nb_nuit?> nuits</td>
                 <td><?=$cruise->prix_cr?>dh</td>
                 <td><?=$cruise->date_dep?></td>
                 <td><?=$cruise->name_n?></td>
                 <td>
-                    <a href="<?=URLROOT?>admins/croisiereDelete/<?=$cruise->id_cr?>" class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete </a>
+                    <a href="<?=URLROOT?>admins/croisiereDelete/<?=$cruise->id_cr?>" class='btn btn-danger confirm'><i
+                            class='fa fa-close'></i> Delete </a>
                 </td>
             </tr>
             <?php endforeach?>

@@ -76,9 +76,9 @@ class Cruise
         }
 
     }
-    public function addCruise($navire, $poDe, $poDa, $prix, $dateDe, $image, $nb_nuit, $name_cr)
+    public function addCruise($navire, $poDe,$trager, $poDa, $prix, $dateDe, $image, $nb_nuit, $name_cr)
     {
-        $this->db->query("INSERT INTO croisiere (port_dar, port_dep , image , nb_nuit , prix_cr ,  date_dep, name_cr,id_nav) VALUES (:dariver, :depart,:image,:nuit,:prix, :date_dep,:name_croisiere ,:id_navire)");
+        $this->db->query("INSERT INTO croisiere (port_dar, port_dep , image , nb_nuit , prix_cr ,  date_dep, name_cr,id_nav,trager) VALUES (:dariver, :depart,:image,:nuit,:prix, :date_dep,:name_croisiere ,:id_navire,:trager)");
         $this->db->bind(':dariver', $poDa);
         $this->db->bind(':depart', $poDe);
         $this->db->bind(':image', $image);
@@ -87,6 +87,7 @@ class Cruise
         $this->db->bind(':name_croisiere', $name_cr);
         $this->db->bind(':id_navire', $navire);
         $this->db->bind(':date_dep', $dateDe);
+        $this->db->bind(':trager', $trager);
         if ($this->db->execute()) {
             return true;
         } else {

@@ -1,3 +1,4 @@
+
 // Les jours antérieurs à aujourd'hui sont désactivés
 const date_reservation = document.getElementById("date_reservation");
 const paginationBtn = document.getElementById("pagination");

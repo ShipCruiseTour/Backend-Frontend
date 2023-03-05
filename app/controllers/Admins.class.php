@@ -14,6 +14,10 @@ class Admins extends Controller
         $this->cruiseModel = $this->model('cruise');
         $this->typeRoomModel = $this->model('Typechambre');
     }
+    public function test()
+    {
+        $this->view('admins/test');
+    }
     public function index()
     {
         if ($_SESSION['user_id'] != null) {
@@ -103,9 +107,27 @@ class Admins extends Controller
         if ($_SESSION['user_id'] == null) {
             redirect('admins');
         } else {
+            $croisieresGlobal = [];
             $croisieres = $this->adminModel->getCruises();
+            for ($i=0; $i < count($croisieres); $i++) { 
+                $idPortsTrager[$i] = $croisieres[$i]->trager;
+                unset($croisieres[$i]->trager);
+                
+                $idPortsTragerArr[$i] = explode(',',$idPortsTrager[$i]);
+                $namePortsTragerArr[$i] = [];
+                for ($j=0; $j < count($idPortsTragerArr[$i]) ; $j++) { 
+                    $namePortTrager[$j]=$this->portModel->getPortByIdReturnName($idPortsTragerArr[$i][$j]);
+                    array_push ($namePortsTragerArr[$i] , $namePortTrager[$j]);
+                }
+                $trajerCruise[$i] = '';
+                for($t=0;$t<count($namePortsTragerArr[$i]);$t++){
+                    $trajerCruise[$i] = $trajerCruise[$i] . ' ' . $namePortsTragerArr[$i][$t]. ' ';                    
+                }
+                $croisieres[$i]->trager = $trajerCruise[$i];
+                array_push ($croisieresGlobal , $croisieres[$i]);
+            }
             $data = [
-                'croisieres' => $croisieres
+                'croisieres' => $croisieresGlobal
             ];
             
             $count = $this->adminModel->countItems('id_cr','croisiere');
@@ -276,15 +298,22 @@ class Admins extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $navire = $_POST['navire'];
-            $poDe = $_POST['poDe'];
-            $poDa = $_POST['poDa'];
+            $pos = $_POST['posSelected'];
+            $posArr = explode(',', $pos);
             $prix = $_POST['prix'];
             $dateDe = $_POST['dateDe'];
             $image = $_FILES['img']['name'];
             $nb_nuit = $_POST['nb_nuit'];
             $name_cr = $_POST['name_cr'];
 
-            $this->cruiseModel->addCruise($navire,$poDe,$poDa,$prix,$dateDe,$image,$nb_nuit,$name_cr);
+            $poDe = $posArr[0];
+            $trager = $posArr[1];
+            $poDa = $posArr[count($posArr)-1];
+            for ($i=2; $i <count($posArr)-1 ; $i++) { 
+                $trager = $trager . ',' . $i;
+            }
+
+            $this->cruiseModel->addCruise($navire,$poDe,$trager,$poDa,$prix,$dateDe,$image,$nb_nuit,$name_cr);
             redirect('admins/croisiere');
         }
         else{

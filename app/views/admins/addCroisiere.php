@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once APPROOT . '/views/inc/header.inc.php';
 include_once APPROOT . '/views/inc/navbarAdmin.inc.php';
 $noFooter = '';
@@ -19,38 +19,40 @@ $noFooter = '';
             <div class="col-sm-10 col-md-6 input11">
                 <select name="navire">
                     <option disabled selected value="0">...</option>
-                    <?php foreach ($data['navires'] as $navire) : ?>
-                        <option value="<?= $navire->id_n ?>"><?= $navire->name_n ?></option>
-                    <?php endforeach ?>
+                    <?php foreach ($data['navires'] as $navire): ?>
+                    <option value="<?=$navire->id_n?>"><?=$navire->name_n?></option>
+                    <?php endforeach?>
                 </select>
             </div>
         </div>
         <!-- End name navire Field -->
-        <!-- Start port_depart Field -->
+        <!-- Start port_depaportsrt Field -->
         <div class="form-group form-group-lg labelInput11">
-            <label class="col-sm-2 control-label">port depart</label>
+            <label class="col-sm-2 control-label">ports (le trager)</label>
+            <input type="text" name="posSelected" id="pos" class="form-control" required="required"
+                placeholder="trager" />
             <div class="col-sm-10 col-md-6 input11">
-                <select name="poDe">
+                <select id="mySelect" multiple>
                     <option disabled selected value="0">...</option>
-                    <?php foreach ($data['ports'] as $port) : ?>
-                    <option value="<?= $port->id_p ?>"><?= $port->nameP ?></option>
-                    <?php endforeach ?>
+                    <?php foreach ($data['ports'] as $port): ?>
+                    <option value="<?=$port->id_p?>"><?=$port->nameP?></option>
+                    <?php endforeach?>
                 </select>
             </div>
         </div>
         <!-- End port_dariv Field -->
         <!-- Start port_depart Field -->
-        <div class="form-group form-group-lg labelInput11">
+        <!-- <div class="form-group form-group-lg labelInput11">
             <label class="col-sm-2 control-label">port darrive</label>
             <div class="col-sm-10 col-md-6 input11">
                 <select name="poDa">
                     <option disabled selected value="0">...</option>
-                    <?php foreach ($data['ports'] as $port) : ?>
-                        <option value="<?= $port->id_p ?>"><?= $port->nameP ?></option>
-                    <?php endforeach ?>
+                    <?php foreach ($data['ports'] as $port): ?>
+                    <option value="<?=$port->id_p?>"><?=$port->nameP?></option>
+                    <?php endforeach?>
                 </select>
             </div>
-        </div>
+        </div> -->
         <!-- End port_depart Field -->
         <!-- Start prix_croisiere Field -->
         <div class="form-group form-group- labelInput11">
@@ -81,19 +83,44 @@ $noFooter = '';
         <div class="form-group labelInput11">
             <label class="col-sm-2 control-label">Image</label>
             <div class="col-sm-10 col-md-6 input11">
-                <input type="file" name="img" accept="image/*" style="margin-bottom: 10px !important; width: 100%; background-color: #0000001a;padding: 10px;border-radius: 10px;box-shadow: 0 4px 4px black;" >
+                <input type="file" name="img" accept="image/*"
+                    style="margin-bottom: 10px !important; width: 100%; background-color: #0000001a;padding: 10px;border-radius: 10px;box-shadow: 0 4px 4px black;">
             </div>
         </div>
         <!-- End Tags image -->
         <!-- Start Submit Field -->
         <div class="form-group form-group-lg">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit"  value="Add Croisiere" name="btn_insert" class="btn btn-primary btn-sm" />
+                <input type="submit" value="Add Croisiere" name="btn_insert" class="btn btn-primary btn-sm" />
             </div>
         </div>
         <!-- End Submit Field -->
     </form>
 </div>
+<script>
+var select = document.getElementById("mySelect");
+var pos = document.getElementById("pos");
+
+var selectedOptions = [];
+
+select.addEventListener("change", function(event) {
+    var option = event.target.options[event.target.selectedIndex];
+    var value = option.value;
+    if (option.selected) {
+        selectedOptions.push(value);
+    }
+    // Réorganiser les options dans l'ordre des options sélectionnées
+    var orderedOptions = [];
+    for (var i = 0; i < selectedOptions.length; i++) {
+        var option = select.querySelector('option[value="' + selectedOptions[i] + '"]');
+        if (option) {
+            orderedOptions.push(selectedOptions[i]);
+        }
+    }
+    pos.value = orderedOptions
+    console.log(orderedOptions);
+});
+</script>
 
 
-<?php include_once APPROOT . '/views/inc/footer.inc.php' ?>
+<?php include_once APPROOT . '/views/inc/footer.inc.php'?>
