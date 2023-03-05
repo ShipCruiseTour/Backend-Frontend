@@ -1,7 +1,6 @@
 
 // Les jours antérieurs à aujourd'hui sont désactivés
 const date_reservation = document.getElementById("date_reservation");
-const paginationBtn = document.getElementById("pagination");
 const today = new Date();
 
 const year = today.getFullYear();
@@ -20,6 +19,7 @@ if (date_reservation != null) {
 }
 
 // pagination
+const paginationBtn = document.getElementById("pagination");
 // Récupérer les éléments HTML pertinents
 const croisieresDiv = document.querySelector('.croisieres');
 const cards = croisieresDiv.querySelectorAll('.card');
