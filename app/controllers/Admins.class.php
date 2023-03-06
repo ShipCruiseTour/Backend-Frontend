@@ -312,6 +312,7 @@ class Admins extends Controller
             for ($i=2; $i <count($posArr)-1 ; $i++) { 
                 $trager = $trager . ',' . $i;
             }
+            
 
             $this->cruiseModel->addCruise($navire,$poDe,$trager,$poDa,$prix,$dateDe,$image,$nb_nuit,$name_cr);
             redirect('admins/croisiere');

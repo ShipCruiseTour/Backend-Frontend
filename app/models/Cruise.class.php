@@ -78,6 +78,7 @@ class Cruise
     }
     public function addCruise($navire, $poDe,$trager, $poDa, $prix, $dateDe, $image, $nb_nuit, $name_cr)
     {
+      
         $this->db->query("INSERT INTO croisiere (port_dar, port_dep , image , nb_nuit , prix_cr ,  date_dep, name_cr,id_nav,trager) VALUES (:dariver, :depart,:image,:nuit,:prix, :date_dep,:name_croisiere ,:id_navire,:trager)");
         $this->db->bind(':dariver', $poDa);
         $this->db->bind(':depart', $poDe);
@@ -124,7 +125,9 @@ class Cruise
     public function chercher($sqlEnd)
     {
 
-        $sql = "SELECT * FROM croisiere" . $sqlEnd;
+        $sql = "SELECT * FROM croisiere" . $sqlEnd ." and
+        (YEAR(date_dep) = YEAR(NOW()) AND  MONTH(date_dep) >= MONTH(NOW()) AND DAY(date_dep) >= DAY(NOW()))
+        OR (YEAR(date_dep) > YEAR(NOW()))";
         $this->db->query($sql);
         $this->db->execute();
         $this->db->fetchAll();

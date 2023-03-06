@@ -138,10 +138,27 @@ class Cruises extends Controller
     }
     public function show($id)
     {
-        $cruise = $this->cruiseModel->showCruise($id);
-        if ($cruise) {
+        $cruises = $this->cruiseModel->showCruise($id);
+        // get the Cruise
+        $trager = $cruises->trager;
+        unset($cruises->trager);
+        $idPortsTragerArr = explode(',', $trager);
+        $namePortsTragerArr = [];
+        
+
+        for ($j=0; $j < count($idPortsTragerArr) ; $j++) { 
+            $namePortTrager[$j]=$this->portModel->getPortByIdReturnName($idPortsTragerArr[$j]);
+            array_push ($namePortsTragerArr , $namePortTrager[$j]);
+        }
+            $trajerCruise = '';
+            for($t=0;$t<count($namePortsTragerArr);$t++){
+                    $trajerCruise = $trajerCruise . ' ' . $namePortsTragerArr[$t]. ' ';                    
+                }
+                $cruises->trager = $trajerCruise;
+                
+        if ($cruises) {
             $data = [
-                'cruise' => $cruise
+                'cruise' => $cruises
             ];
             $this->view('cruises/show', $data);
         } else {
